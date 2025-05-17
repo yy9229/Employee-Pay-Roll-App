@@ -1,6 +1,8 @@
 package com.bridgelabz.employeepayrollapp.controller;
 
 import org.springframework.web.bind.annotation.*;
+import com.bridgelabz.employeepayrollapp.DTO.EmployeePayrollDTO;
+import com.bridgelabz.employeepayrollapp.model.EmployeePayrollData;
 
 @RestController
 @RequestMapping("/employeepayrollservice")
@@ -30,4 +32,15 @@ public class EmployeePayrollController {
     public String deleteEmployee(@PathVariable int id) {
         return "Deleted Employee with ID: " + id;
     }
+    
+    @GetMapping("/testdto")
+    public EmployeePayrollDTO getTestDTO() {
+        return new EmployeePayrollDTO("John Doe", 50000);
+    }
+
+    @GetMapping("/testmodel")
+    public EmployeePayrollData getTestModel() {
+        return new EmployeePayrollData(1, "Jane Doe", 60000);
+    }
+
 }
